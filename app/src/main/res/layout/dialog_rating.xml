@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="4dp">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="20dp">
+
+            <TextView
+                    android:id="@+id/edtPhone"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="28sp"
+                    android:text="Rate this Food"/>
+
+            <TextView
+                    android:id="@+id/edtSecureCode"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp"
+                    android:text="Please select some stars and give your feedback"/>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center">
+
+            <ImageView
+                    android:id="@+id/star1"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:srcCompat="@drawable/ic_star_border_black_24dp"/>
+
+            <ImageView
+                    android:id="@+id/star2"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:srcCompat="@drawable/ic_star_border_black_24dp"/>
+
+            <ImageView
+                    android:id="@+id/star3"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:srcCompat="@drawable/ic_star_border_black_24dp"/>
+
+            <ImageView
+                    android:id="@+id/star4"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:srcCompat="@drawable/ic_star_border_black_24dp"/>
+
+            <ImageView
+                    android:id="@+id/star5"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:srcCompat="@drawable/ic_star_border_black_24dp"/>
+
+        </LinearLayout>
+
+        <TextView
+                android:layout_marginTop="10dp"
+                android:id="@+id/ratingDescription"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp"
+                android:text=""/>
+
+        <EditText
+                android:paddingTop="7dp"
+                android:paddingLeft="7dp"
+                android:textColorHint="@android:color/white"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="20dp"
+                android:background="@color/colorPrimary"
+                android:gravity="top"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="150dp"
+                android:inputType="textMultiLine"
+                android:hint="Please enter your comment here..."
+                android:ems="10"
+                android:id="@+id/userReview"/>
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

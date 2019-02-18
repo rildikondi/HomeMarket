@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">HomeMarket</string>
+    <string name="slogan">No matter where you are:
+        whether you are at home, or in office, or on the beach -
+        we wil find you and we will feed you.
+    </string>
+    <string name="title_activity_home">Home</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="forgot_pwd"><u>Forgot Password?</u></string>
+
+    <string name="facebook_app_id">290220718345563</string>
+    <string name="facebook_login_protocol_name">fb290220718345563</string>
+</resources>

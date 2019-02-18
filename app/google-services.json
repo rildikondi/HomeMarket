@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1070087748210",
+    "firebase_url": "https://homemarket-7cadd.firebaseio.com",
+    "project_id": "homemarket-7cadd",
+    "storage_bucket": "homemarket-7cadd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1070087748210:android:a1ebe947fb699b2e",
+        "android_client_info": {
+          "package_name": "com.akondi.homemarket"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1070087748210-jiruq6v0f75jodluhrvndimd3em122il.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.akondi.homemarket",
+            "certificate_hash": "d35ef70e56a1a5896ae7d780e9482221c0774795"
+          }
+        },
+        {
+          "client_id": "1070087748210-48dcrqres8iuae5rpci736l55ue6i89j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsoruIBFNu8tTvVh7kcI9eJrPawOpHE_8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1070087748210-48dcrqres8iuae5rpci736l55ue6i89j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

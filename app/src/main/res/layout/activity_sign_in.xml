@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/rl_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activities.SignIn"
+        android:background="@drawable/backgr">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+
+        <EditText
+                android:id="@+id/edtPhone"
+                android:hint="Phone Number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="@android:color/white"
+                android:text="0686715023"
+                android:textColor="@android:color/white"
+                android:textSize="34sp"
+                android:inputType="phone"
+                />
+
+        <EditText
+                android:id="@+id/edtPassword"
+                android:hint="Password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="@android:color/white"
+                android:text="1234"
+                android:textColor="@android:color/white"
+                android:textSize="34sp"
+                android:inputType="textPassword"/>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+            <com.rey.material.widget.CheckBox
+                    android:id="@+id/checkboxRemember"
+                    android:textColor="@android:color/white"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    style="@style/Material.Drawable.CheckBox"
+                    android:text="Remember me"
+                    android:gravity="center_vertical"
+                    app:cbd_strokeColor="@android:color/white"
+                    app:cbd_tickColor="@color/colorPrimaryDark"/>
+
+            <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtForgotPwd"
+                    android:textColor="@android:color/white"
+                    android:text="@string/forgot_pwd"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+            android:id="@+id/btnSignIn"
+            android:text="Sign In"
+            android:textColor="@android:color/white"
+            android:layout_width="match_parent"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_alignParentBottom="true"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_sign_in"
+            android:shadowColor="@android:color/black"
+            android:shadowDy="5"
+            android:layout_margin="8dp"/>
+
+</RelativeLayout>
