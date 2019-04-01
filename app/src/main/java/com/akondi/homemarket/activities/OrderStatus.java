@@ -48,7 +48,7 @@ public class OrderStatus extends AppCompatActivity {
         if(getIntent() == null)
             loadOrders(Common.currentUser.getPhone());
         else
-            loadOrders(Common.currentUser.getPhone());
+            loadOrders(getIntent().getStringExtra(Common.PHONE_TEXT));
     }
 
     private void loadOrders(String phone) {

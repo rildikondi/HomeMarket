@@ -11,8 +11,8 @@ import com.akondi.homemarket.interfaces.ItemClickListener;
 public class FoodViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
 
-    public TextView food_name;
-    public ImageView food_image, fav_image, btn_share;
+    public TextView food_name, food_price;
+    public ImageView food_image, fav_image, btn_share, btn_quick_cart;
     private ItemClickListener itemClickListener;
 
     public void setItemClickListener(ItemClickListener itemClickListener) {
@@ -22,9 +22,11 @@ public class FoodViewHolder extends RecyclerView.ViewHolder implements View.OnCl
     public FoodViewHolder(@NonNull View itemView) {
         super(itemView);
         food_name = (TextView) itemView.findViewById(R.id.food_name);
+        food_price  = (TextView) itemView.findViewById(R.id.food_price);
         food_image = (ImageView) itemView.findViewById(R.id.food_image);
         fav_image = (ImageView) itemView.findViewById(R.id.fav_image);
         btn_share = (ImageView) itemView.findViewById(R.id.btn_share);
+        btn_quick_cart = (ImageView) itemView.findViewById(R.id.btn_quick_cart);
         itemView.setOnClickListener(this);
     }
 

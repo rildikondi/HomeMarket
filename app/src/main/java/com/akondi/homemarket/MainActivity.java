@@ -96,7 +96,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void findWidgets() {
-
         rl_main = findViewById(R.id.rl_main);
 
         btnSignIn = findViewById(R.id.btnSignIn);

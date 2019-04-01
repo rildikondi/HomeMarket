@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-      xmlns:app="http://schemas.android.com/apk/res-auto">
-   <!-- <item
-            android:id="@+id/action_settings"
-            android:title="@string/action_settings"
-            android:orderInCategory="100"
-            app:showAsAction="never"/> -->
-   <item
-           android:id="@+id/refresh"
-           android:icon="@drawable/ic_refresh_black_24dp"
-           android:iconTint="@android:color/white"
-           android:title="refresh"/>
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!-- <item
+             android:id="@+id/action_settings"
+             android:title="@string/action_settings"
+             android:orderInCategory="100"
+             app:showAsAction="never"/> -->
+    <!--<item-->
+    <!--android:id="@+id/refresh"-->
+    <!--android:icon="@drawable/ic_refresh_black_24dp"-->
+    <!--android:iconTint="@android:color/white"-->
+    <!--android:title="refresh"/>-->
+
+    <item
+        android:id="@+id/toolbar_cart"
+        android:icon="@drawable/ic_shopping_cart_black_24dp"
+        android:iconTint="@android:color/white"
+        android:title="Cart"
+        app:actionLayout="@layout/custom_action_item_layout"
+        app:showAsAction="always" />
+
 </menu>

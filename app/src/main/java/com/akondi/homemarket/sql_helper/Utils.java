@@ -63,5 +63,4 @@ public class Utils {
     public static String convertStreamToString(InputStream is) {
         return new Scanner(is).useDelimiter("\\A").next();
     }
-
 }

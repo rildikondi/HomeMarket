@@ -7,6 +7,7 @@ public class User {
     private String phone;
     private String isStaff;
     private String secureCode;
+    private String homeAddress;
 
     public User() {
     }
@@ -56,5 +57,13 @@ public class User {
 
     public void setSecureCode(String secureCode) {
         this.secureCode = secureCode;
+    }
+
+    public String getHomeAddress() {
+        return homeAddress;
+    }
+
+    public void setHomeAddress(String homeAddress) {
+        this.homeAddress = homeAddress;
     }
 }

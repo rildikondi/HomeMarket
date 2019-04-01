@@ -33,11 +33,17 @@
                         android:textColorHint="@color/colorPrimary"
                         android:text=""
                         android:textColor="@color/colorPrimary"
-                        android:textSize="34sp"
+                        android:textSize="24sp"
                         android:inputType="text"
                         />
 
             </android.support.design.widget.TextInputLayout>
+
+            <!--<fragment-->
+                <!--android:id="@+id/place_autocomplete_fragment"-->
+                <!--android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"/>-->
 
             <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
@@ -50,11 +56,31 @@
                         android:layout_height="wrap_content"
                         android:textColorHint="@color/colorPrimary"
                         android:text=""
+                        android:layout_marginBottom="10dp"
                         android:textColor="@color/colorPrimary"
                         android:textSize="34sp"
                         android:inputType="textMultiLine"
                         />
             </android.support.design.widget.TextInputLayout>
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/rbtnShipToAddress"
+                    android:text="Ship to this Address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"/>
+
+                <RadioButton
+                    android:id="@+id/rbtnHomeAddress"
+                    android:text="Home Address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </RadioGroup>
 
         </LinearLayout>
 

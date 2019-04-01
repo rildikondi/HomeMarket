@@ -2,6 +2,7 @@ package com.akondi.homemarket.activities;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -17,16 +18,15 @@ import com.akondi.homemarket.databases.Database;
 import com.akondi.homemarket.model.Food;
 import com.akondi.homemarket.model.Order;
 import com.akondi.homemarket.model.Rating;
-import com.akondi.homemarket.model.User;
+import com.andremion.counterfab.CounterFab;
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.*;
 import com.squareup.picasso.Picasso;
-import com.stepstone.apprating.AppRatingDialog;
-import com.stepstone.apprating.listener.RatingDialogListener;
 
-import org.jetbrains.annotations.NotNull;
+import static com.akondi.homemarket.common.Common.INTENT_FOOD_ID;
 
-import java.util.Arrays;
 
 public class FoodDetails extends AppCompatActivity {
 
@@ -36,6 +36,7 @@ public class FoodDetails extends AppCompatActivity {
     private FloatingActionButton btnCart, btnRating;
     private ElegantNumberButton numberButton;
     private RatingBar ratingBar;
+    private EditText userReview;
 
     private FirebaseDatabase database;
     private DatabaseReference foods;
@@ -44,6 +45,7 @@ public class FoodDetails extends AppCompatActivity {
     private Food currentFood;
     private String foodId = "";
     private TextView ratingDescription;
+    private Button btnShowComments;
 
     private int starClicked = 1;
 
@@ -55,6 +57,11 @@ public class FoodDetails extends AppCompatActivity {
         setupFirebase();
         initViews();
         getFoodId();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
     }
 
     private void getFoodId() {
@@ -106,12 +113,15 @@ public class FoodDetails extends AppCompatActivity {
                         currentFood.getName(),
                         numberButton.getNumber(),
                         currentFood.getPrice(),
-                        currentFood.getDiscount()
+                        currentFood.getDiscount(),
+                        currentFood.getImage()
                 ));
 
                 Toast.makeText(FoodDetails.this, "Added to Cart", Toast.LENGTH_SHORT).show();
             }
         });
+
+
         btnRating = (FloatingActionButton) findViewById(R.id.btn_rating);
         btnRating.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -129,6 +139,20 @@ public class FoodDetails extends AppCompatActivity {
         collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing);
         collapsingToolbarLayout.setExpandedTitleTextAppearance(R.style.ExpandedAppbar);
         collapsingToolbarLayout.setCollapsedTitleTextAppearance(R.style.CollapsedAppbar);
+
+        btnShowComments = (Button) findViewById(R.id.btnShowComments);
+        btnShowComments.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToCommentsActivity();
+            }
+        });
+    }
+
+    private void goToCommentsActivity() {
+        Intent intent = new Intent(FoodDetails.this, CommentsListActivity.class);
+        intent.putExtra(INTENT_FOOD_ID, foodId);
+        startActivity(intent);
     }
 
     private void showRatingDialog() {
@@ -139,13 +163,13 @@ public class FoodDetails extends AppCompatActivity {
 
         setupDialogWidgets(view);
 
-        builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("Submit", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 uploadRatingToFirebase();
             }
         });
-        builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
@@ -160,32 +184,43 @@ public class FoodDetails extends AppCompatActivity {
                 Common.currentUser.getPhone(),
                 foodId,
                 String.valueOf(starClicked),
-                ratingDescription.getText().toString()
+                userReview.getText().toString()
         );
-        ratingTbl.child(Common.currentUser.getPhone()).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.child(Common.currentUser.getPhone()).exists()) {
-                    //remove old value
-                    ratingTbl.child(Common.currentUser.getPhone()).removeValue();
-                    //update new value
-                    ratingTbl.child(Common.currentUser.getPhone()).setValue(rating);
-                } else {
-                    //Update new value
-                    ratingTbl.child(Common.currentUser.getPhone()).setValue(rating);
-                }
-                Toast.makeText(FoodDetails.this, "Thank you for your rating !!!", Toast.LENGTH_SHORT).show();
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+        //Fix user can rate multiple times
+        ratingTbl.push()
+                .setValue(rating)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        Toast.makeText(FoodDetails.this, "Thank you for your rating !!!", Toast.LENGTH_SHORT).show();
+                    }
+                });
 
-            }
-        });
+//        ratingTbl.child(Common.currentUser.getPhone()).addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                if (dataSnapshot.child(Common.currentUser.getPhone()).exists()) {
+//                    //remove old value
+//                    ratingTbl.child(Common.currentUser.getPhone()).removeValue();
+//                    //update new value
+//                    ratingTbl.child(Common.currentUser.getPhone()).setValue(rating);
+//                } else {
+//                    //Update new value
+//                    ratingTbl.child(Common.currentUser.getPhone()).setValue(rating);
+//                }
+//                Toast.makeText(FoodDetails.this, "Thank you for your rating !!!", Toast.LENGTH_SHORT).show();
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
     }
 
     private void setupDialogWidgets(View view) {
-        final EditText userReview = (EditText) view.findViewById(R.id.userReview);
+        userReview = (EditText) view.findViewById(R.id.userReview);
         final ImageView star1 = (ImageView) view.findViewById(R.id.star1);
         final ImageView star2 = (ImageView) view.findViewById(R.id.star2);
         final ImageView star3 = (ImageView) view.findViewById(R.id.star3);

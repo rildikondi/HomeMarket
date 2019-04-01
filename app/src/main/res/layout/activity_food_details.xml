@@ -43,7 +43,7 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <android.support.design.widget.FloatingActionButton
+    <com.andremion.counterfab.CounterFab
             android:id="@+id/btnCart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -133,7 +133,7 @@
                         android:layout_marginLeft="8dp"
                         android:layout_marginBottom="18dp"
                         app:textSize="8sp"
-                        app:backGroundColor="@color/colorAccent"
+                        app:backGroundColor="@color/btnSignActive"
                         app:initialNumber="1"
                         app:finalNumber="20"/>
                     
@@ -177,6 +177,20 @@
                 </LinearLayout>
 
             </android.support.v7.widget.CardView>
+
+            <Button
+                android:id="@+id/btnShowComments"
+                android:text="Show comments"
+                android:textColor="@android:color/white"
+                android:layout_width="match_parent"
+                android:layout_marginRight="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_alignParentBottom="true"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_sign_in"
+                android:shadowColor="@android:color/black"
+                android:shadowDy="5"
+                android:layout_margin="8dp"/>
 
         </LinearLayout>
 
